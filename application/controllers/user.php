@@ -23,7 +23,7 @@ class User extends CI_Controller {
       $user = $this->User_model->log_in($user_name, $password);
       if ($user != false)
       {
-        $user_data = array("first_name" => $user->first_name, "last_name" => $user->last_name, "user_id" => $user->id, "logged_in" => true);
+        $user_data = array("first_name" => $user->first_name, "last_name" => $user->last_name, "user_id" => $user->id, "logged_in" => true, 'ward_id' => $user->ward_id);
         $this->session->set_userdata($user_data);
         redirect("user/index");
       }
