@@ -7,5 +7,6 @@
       Password: <input type="password" name="password"><br>
       <input type="submit" value="Submit">
     </form>
+    <p><a href="new_user">new user</a></p>
   </body>
 </html>
