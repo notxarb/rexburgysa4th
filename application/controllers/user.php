@@ -41,7 +41,14 @@ class User extends CI_Controller {
   {
     if ($this->input->server('REQUEST_METHOD') == 'POST')
     {
+      $this->load->model("User_model");
       $this->load->helper('url');
+      $first_name = $_POST['first_name'];
+      $last_name = $_POST['last_name'];
+      $ward_id = $_POST['ward_id'];
+      $user_name = $_POST['user_name'];
+      $password = $_POST['password'];
+      $this->User_model->create($first_name, $last_name, $ward_id, $user_name, $password);
       redirect("user/log_in");
     }
     elseif ($this->input->server('REQUEST_METHOD') == 'GET')
