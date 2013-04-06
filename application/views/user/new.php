@@ -2,7 +2,7 @@
   <head>
   </head>
   <body>
-    <form action='user/new_user' method='post'>
+    <form action='new_user' method='post'>
       First name: <input type="text" name="first_name"><br>
       Last name: <input type="text" name="last_name"><br>
       Ward: <select>
