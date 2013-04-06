@@ -7,7 +7,8 @@
       Last name: <input type="text" name="last_name"><br>
       Ward: <select>
       <?php
-        foreach($data[$wards] as $ward)
+        print_r($data);
+        foreach($data['wards'] as $ward)
         {
           echo "<option value=\"" . $ward['id'] . "\">" . $ward['name'] . "<\option>";
         }
