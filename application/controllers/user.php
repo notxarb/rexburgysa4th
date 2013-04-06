@@ -47,7 +47,7 @@ class User extends CI_Controller {
     {
       $this->load->model('Ward_model');
       $data['wards'] = $this->Ward_model->get_wards();
-      $this->load->view('user/new');
+      $this->load->view('user/new', $data);
     }
   }
   
