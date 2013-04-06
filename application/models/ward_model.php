@@ -22,7 +22,8 @@ class Ward_model extends CI_Model {
     {
         $this->db->select('wards', array('id' => $ward_id));
         $this->db->from('wards');
-        $this->db->where('id', $ward_id)
+        $this->db->where('id', $ward_id);
+        $query = $this->db->get();
         return $query->row();
     }
 
