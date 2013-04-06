@@ -19,6 +19,8 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->model('Ward');
+		$data["wards"] = $this->Ward->get_wards();
 		$this->load->view('welcome_message');
 	}
 }
