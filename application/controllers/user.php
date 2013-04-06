@@ -10,11 +10,11 @@ class User extends CI_Controller {
 
   public function log_in()
   {
-    if $this->input->server('REQUEST_METHOD') == 'POST'
+    if ($this->input->server('REQUEST_METHOD') == 'POST')
     {
 
     }
-    elseif $this->input->server('REQUEST_METHOD') == 'GET'
+    elseif ($this->input->server('REQUEST_METHOD') == 'GET')
     {
       
     }
@@ -22,11 +22,11 @@ class User extends CI_Controller {
 
   public function update()
   {
-    if $this->input->server('REQUEST_METHOD') == 'POST'
+    if ($this->input->server('REQUEST_METHOD') == 'POST')
     {
 
     }
-    elseif $this->input->server('REQUEST_METHOD') == 'GET'
+    elseif ($this->input->server('REQUEST_METHOD') == 'GET')
     {
       
     }
@@ -39,11 +39,11 @@ class User extends CI_Controller {
 
   public function new()
   {
-    if $this->input->server('REQUEST_METHOD') == 'POST'
+    if ($this->input->server('REQUEST_METHOD') == 'POST')
     {
       redirect("user/log_in");
     }
-    elseif $this->input->server('REQUEST_METHOD') == 'GET'
+    elseif ($this->input->server('REQUEST_METHOD') == 'GET')
     {
       $this->load->model('Ward_model');
       $data['wards'] = $this->Ward->get_wards();
