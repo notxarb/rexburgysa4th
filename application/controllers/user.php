@@ -46,7 +46,7 @@ class User extends CI_Controller {
     elseif ($this->input->server('REQUEST_METHOD') == 'GET')
     {
       $this->load->model('Ward_model');
-      $data['wards'] = $this->Ward->get_wards();
+      $data['wards'] = $this->Ward_model->get_wards();
       $this->load->view('user/new');
     }
   }
