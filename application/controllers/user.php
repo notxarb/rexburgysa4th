@@ -37,7 +37,7 @@ class User extends CI_Controller {
     $this->session->sess_destroy();
   }
 
-  public function new()
+  public function new_user()
   {
     if ($this->input->server('REQUEST_METHOD') == 'POST')
     {
