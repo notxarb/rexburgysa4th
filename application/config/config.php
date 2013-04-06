@@ -355,7 +355,7 @@ $config['rewrite_short_tags'] = FALSE;
 | Comma-delimited, e.g. '10.0.1.200,10.0.1.201'
 |
 */
-$config['proxy_ips'] = '';
+$config['proxy_ips'] = '10.60.5.16,10.60.5.9,10.60.5.4,10.60.5.21';
 
 
 /* End of file config.php */
