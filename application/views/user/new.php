@@ -9,7 +9,7 @@
       <?php
         foreach($data[$wards] as $ward)
         {
-          echo "<option value=\"" . $ward->id . "\">" . $ward->name . "<\option>";
+          echo "<option value=\"" . $ward['id'] . "\">" . $ward['name'] . "<\option>";
         }
       ?>
       </select><br>
