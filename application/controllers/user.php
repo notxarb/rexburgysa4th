@@ -16,7 +16,7 @@ class User extends CI_Controller {
     }
     elseif ($this->input->server('REQUEST_METHOD') == 'GET')
     {
-      
+      $this->load->view('user/log_in');
     }
   }
 
@@ -41,7 +41,7 @@ class User extends CI_Controller {
   {
     if ($this->input->server('REQUEST_METHOD') == 'POST')
     {
-      redirect("user/log_in");
+      redirect("log_in");
     }
     elseif ($this->input->server('REQUEST_METHOD') == 'GET')
     {
