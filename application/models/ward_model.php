@@ -18,6 +18,12 @@ class Ward_model extends CI_Model {
         return $query->result();
     }
 
+    function get_ward($ward_id)
+    {
+        $query = $this->db->get_where('wards', array('id' => $ward_id));
+        return $query->result();
+    }
+
     function insert_entry()
     {
         $this->name = $_POST['name']; // please read the below note

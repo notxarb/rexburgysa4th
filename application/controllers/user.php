@@ -4,8 +4,14 @@ class User extends CI_Controller {
 
   public function index()
   {
-
-    $this->load->view('user/index');
+    $this->load->model('Ward_model');
+    $ward = $this->Ward_model->get_ward($this->session->userdata('ward_id'));
+    $data = array();
+    $data['first_name'] = $this->session->userdata('first_name');
+    $data['last_name'] = $this->session->userdata('last_name');
+    $data['ward_name'] = $ward->name;
+    $data['ward_goal'] = $ward->goal;
+    $this->load->view('user/index', $data);
   }
 
   public function log_in()
@@ -47,6 +53,7 @@ class User extends CI_Controller {
   public function log_out()
   {
     $this->session->sess_destroy();
+    redirect('user/log_in');
   }
 
   public function new_user()
