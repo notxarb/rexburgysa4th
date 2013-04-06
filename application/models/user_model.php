@@ -17,7 +17,7 @@ class User_model extends CI_Model {
   public function create($first_name, $last_name, $ward_id, $user_name, $password)
   {
     $this->first_name = $first_name;
-    $this->last_name = $lastname;
+    $this->last_name = $last_name;
     $this->ward_id = $ward_id;
     $this->user_name = $user_name;
     $this->password = md5($password);
