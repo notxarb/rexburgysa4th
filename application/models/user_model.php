@@ -29,6 +29,23 @@ class User_model extends CI_Model {
 
   }
 
+  public function log_in($user_name, $password)
+  {
+    $this->db->select('id, first_name, last_name');
+    $this->db->from('users');
+    $this->db->where('user_name', $user_name);
+    $this->db->where('password', md5($password));
+    $query = $this->db->get();
+    if ($query->num_rows() == 1)
+    {
+      return $query->result();
+    }
+    else
+    {
+      return false;
+    }
+  }
+
   public function get_points()
   {
       
@@ -36,7 +53,7 @@ class User_model extends CI_Model {
 
   public function is_logged_in()
   {
-
+    return ( $this->session->userdata('logged_in') == true );
   }
 
 }

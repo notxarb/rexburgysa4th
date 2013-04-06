@@ -5,14 +5,26 @@ class User extends CI_Controller {
   public function index()
   {
 
-    $this->load->view('user/index', $data);
+    $this->load->view('user/index');
   }
 
   public function log_in()
   {
     if ($this->input->server('REQUEST_METHOD') == 'POST')
     {
-
+      $user_name = $_POST['user_name'];
+      $password = $_POST['password'];
+      $user = $this->User_model->log_in($user_name, $password);
+      if ($user != false)
+      {
+        $user_data = array("first_name" => $user->first_name, "last_name" => $user->last_name, "user_id" => $user->id, "logged_in" => true);
+        $this->session->set_userdata($user_data);
+        redirect("user/index");
+      }
+      else
+      {
+        $this->load->view('user/log_in');
+      }
     }
     elseif ($this->input->server('REQUEST_METHOD') == 'GET')
     {
@@ -41,8 +53,6 @@ class User extends CI_Controller {
   {
     if ($this->input->server('REQUEST_METHOD') == 'POST')
     {
-      $this->load->model("User_model");
-      $this->load->helper('url');
       $first_name = $_POST['first_name'];
       $last_name = $_POST['last_name'];
       $ward_id = $_POST['ward_id'];
