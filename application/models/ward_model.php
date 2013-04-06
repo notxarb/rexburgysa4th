@@ -21,7 +21,7 @@ class Ward_model extends CI_Model {
     function get_ward($ward_id)
     {
         $query = $this->db->get_where('wards', array('id' => $ward_id));
-        return $query->result();
+        return $query->row();
     }
 
     function insert_entry()
