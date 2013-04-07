@@ -7,7 +7,7 @@
   <p>Your ward has a goal of getting <?php echo $ward_goal ?> points.</p>
   <h2>Events</h2>
   <h2>Batches</h2>
-    <form action='create' method='post'>
+    <form action='../batch/create' method='post'>
       Points: <input type="text" name="points"><br>
       Date: <input type="date" name="date"><br>
       <input type="submit" value="Submit">
