@@ -48,8 +48,8 @@ class User_model extends CI_Model {
 
   public function get_points()
   {
-    $batch_points = 0;
-    $event_points = 0;
+    $batch_points = "0";
+    $event_points = "0";
     $user_id = $this->session->userdata('user_id');
     $query = $this->db->query('SELECT SUM(points) as points FROM batches WHERE user_id =' . $user_id );
     if ($query->num_rows() == 1)

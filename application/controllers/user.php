@@ -12,8 +12,8 @@ class User extends CI_Controller {
     $data['last_name'] = $this->session->userdata('last_name');
     $data['ward_name'] = $ward->name;
     $data['ward_goal'] = $ward->goal;
-    $data['event_points'] = (string)$points['event_points'];
-    $data['batch_points'] = (string)$points['batch_points'];
+    $data['event_points'] = $points['event_points'];
+    $data['batch_points'] = $points['batch_points'];
     $this->load->view('user/index', $data);
   }
 
