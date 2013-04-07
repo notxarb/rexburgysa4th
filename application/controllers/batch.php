@@ -20,7 +20,7 @@ class Batch extends CI_Controller {
     }
     elseif ($this->input->server('REQUEST_METHOD') == 'GET')
     {
-      $this->load->view('batch/create')
+      $this->load->view('batch/create');
     }
   }
 
