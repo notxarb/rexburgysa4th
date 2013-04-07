@@ -13,5 +13,14 @@ class Event_model extends CI_Model {
         parent::__construct();
     }
 
+    public function insert($date, $points, $description, $location)
+    {
+      $this->date = $date;
+      $this->points = $points;
+      $this->description = $description;
+      $this->$location = $location;
+      $this->db->insert("events", $this);
+    }
+
 }
 ?>
