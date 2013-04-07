@@ -48,7 +48,15 @@ class User_model extends CI_Model {
 
   public function get_points()
   {
-      
+    $user_id = $this->session->userdata('user_id');
+    $query = $this->db->query('SELECT SUM(points) as points FROM batches WHERE user_id =' . $user_id );
+    $query->db->get();
+    $batches = $query->row();
+    $query = $this->db->query('SELECT SUM(e.points) as points FROM events e, attended_events ae WHERE e.id = ae.event_id AND ae.user_id = ' . $user_id);
+    $query->db->get();
+    $events = $query->row();
+
+    return array('batch_points' => $batches->points, 'event_points' => $events->points);
   }
 
   public function is_logged_in()
