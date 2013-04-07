@@ -6,9 +6,9 @@
   <h1>Welcome <?php echo $first_name . " " . $last_name ?> from <?php echo $ward_name ?></h1>
   <p>Your ward has a goal of getting <?php echo $ward_goal ?> points.</p>
   <h2>Events</h2>
-    <p>You have <?php echo $event_points ?> points from attending events.</p>
+    <?php if ($event_points) { ?>><p>You have <?php echo $event_points ?> points from attending events.</p><?php } ?>
   <h2>Batches</h2>
-    <p>You have <?php echo $batch_points ?> points from indexing batches.</p>
+    <?php if ($batch_points) { ?><p>You have <?php echo $batch_points ?> points from indexing batches.</p><?php } ?>
     <form action='../batch/create' method='post'>
       Points: <input type="text" name="points"><br>
       Date: <input type="date" name="date"><br>
