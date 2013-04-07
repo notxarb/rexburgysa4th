@@ -12,5 +12,23 @@ class Batch_model extends CI_Model {
         parent::__construct();
     }
 
+    public function insert($user_id, $points, $date)
+    {
+      $this->user_id = $user_id;
+      $this->points = $points;
+      $this->date = $date;
+      $this->db->insert('batches', $this);
+    }
+
+    public function update()
+    {
+
+    }
+
+    public function delete()
+    {
+      
+    }
+
 }
 ?>
