@@ -9,7 +9,7 @@
         <input type="submit" value="Log in">
       </form>
     </p>
-    <p>New User
+    <p>New User:
       <form action='new_user' method='post'>
         First name: <input type="text" name="first_name"><br>
         Last name: <input type="text" name="last_name"><br>
@@ -23,7 +23,7 @@
         </select><br>
         Username: <input type="text" name="user_name"><br>
         Password: <input type="password" name="password"><br>
-      <input type="submit" value="Submit">
+      <input type="submit" value="Create User">
     </form></p>
   </body>
 </html>
