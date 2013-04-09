@@ -32,12 +32,14 @@ class User extends CI_Controller {
       }
       else
       {
-        $this->load->view('user/log_in');
+        redirect('user/log_in');
       }
     }
     elseif ($this->input->server('REQUEST_METHOD') == 'GET')
     {
-      $this->load->view('user/log_in');
+      $this->load->model('Ward_model');
+      $data['wards'] = $this->Ward_model->get_wards();
+      $this->load->view('user/log_in', $data);
     }
   }
 
