@@ -4,6 +4,7 @@ class User extends CI_Controller {
 
   public function index()
   {
+    if ($this->session->userdata())
     $this->load->model('Ward_model');
     $ward = $this->Ward_model->get_ward($this->session->userdata('ward_id'));
     $points = $this->User_model->get_points();
@@ -21,8 +22,8 @@ class User extends CI_Controller {
   {
     if ($this->input->server('REQUEST_METHOD') == 'POST')
     {
-      $user_name = $_POST['user_name'];
-      $password = $_POST['password'];
+      $user_name = $this->input->post('username');
+      $password = $this->input->post('password');
       $user = $this->User_model->log_in($user_name, $password);
       if ($user != false)
       {
@@ -65,11 +66,11 @@ class User extends CI_Controller {
   {
     if ($this->input->server('REQUEST_METHOD') == 'POST')
     {
-      $first_name = $_POST['first_name'];
-      $last_name = $_POST['last_name'];
-      $ward_id = $_POST['ward_id'];
-      $user_name = $_POST['user_name'];
-      $password = $_POST['password'];
+      $first_name = $this->input->post('first_name');
+      $last_name = $this->input->post('last_name');
+      $ward_id = $this->input->post('ward_id');
+      $user_name = $this->input->post('user_name');
+      $password = $this->input->post('password');
       $this->User_model->create($first_name, $last_name, $ward_id, $user_name, $password);
       redirect("user/log_in");
     }

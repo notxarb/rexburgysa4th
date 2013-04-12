@@ -17,8 +17,8 @@ class Event_model extends CI_Model {
     {
       $this->date = $date;
       $this->points = $points;
-      $this->description = $description;
-      $this->$location = $location;
+      $this->description = $this->db->escape($description);
+      $this->$location = $this->db->escape($location);
       $this->db->insert("events", $this);
     }
 

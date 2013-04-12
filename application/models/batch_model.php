@@ -12,6 +12,12 @@ class Batch_model extends CI_Model {
         parent::__construct();
     }
 
+    public function get($user_id, $id)
+    {
+      $query = $this->db->get_where('batches', array('id' => $id, "user_id" => $user_id));
+      return $query->row();
+    }
+
     public function insert($user_id, $points, $date)
     {
       $this->user_id = $user_id;
@@ -20,14 +26,17 @@ class Batch_model extends CI_Model {
       $this->db->insert('batches', $this);
     }
 
-    public function update()
+    public function update($user_id, $points, $date, $id)
     {
-
+      $this->user_id = $user_id;
+      $this->points = $points;
+      $this->date = $date;
+      $this->db->insert('batches', $this, array("id" => $id, "user_id" => $user_id));
     }
 
-    public function delete()
+    public function delete($user_id, $id)
     {
-      
+      $this->db->delete('batches', array("id" => $id, "user_id" => $user_id));
     }
 
 }

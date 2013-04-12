@@ -12,10 +12,10 @@ class Event extends CI_Controller {
     if ($this->input->server('REQUEST_METHOD') == 'POST')
     {
       $this->load->model('Event_model');
-      $date = $_POST['date'];
-      $points = $_POST['points'];
-      $location = $_POST['location'];
-      $description = $_POST['description'];
+      $date = $this->input->post('date');
+      $points = $this->input->post('points');
+      $location = $this->input->post('location');
+      $description = $this->input->post('description');
       $this->Event_model->insert($date, $points, $description, $location);
       redirect("user/index");
     }
