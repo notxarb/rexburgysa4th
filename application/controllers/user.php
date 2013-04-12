@@ -4,18 +4,24 @@ class User extends CI_Controller {
 
   public function index()
   {
-    if ($this->session->userdata())
-    $this->load->model('Ward_model');
-    $ward = $this->Ward_model->get_ward($this->session->userdata('ward_id'));
-    $points = $this->User_model->get_points();
-    $data = array();
-    $data['first_name'] = $this->session->userdata('first_name');
-    $data['last_name'] = $this->session->userdata('last_name');
-    $data['ward_name'] = $ward->name;
-    $data['ward_goal'] = $ward->goal;
-    $data['event_points'] = $points['event_points'];
-    $data['batch_points'] = $points['batch_points'];
-    $this->load->view('user/index', $data);
+    if ($this->session->userdata('user_id'))
+    {
+      $this->load->model('Ward_model');
+      $ward = $this->Ward_model->get_ward($this->session->userdata('ward_id'));
+      $points = $this->User_model->get_points();
+      $data = array();
+      $data['first_name'] = $this->session->userdata('first_name');
+      $data['last_name'] = $this->session->userdata('last_name');
+      $data['ward_name'] = $ward->name;
+      $data['ward_goal'] = $ward->goal;
+      $data['event_points'] = $points['event_points'];
+      $data['batch_points'] = $points['batch_points'];
+      $this->load->view('user/index', $data);
+    }
+    else
+    {
+      redirect('user/log_in');
+    }
   }
 
   public function log_in()
