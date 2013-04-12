@@ -12,6 +12,9 @@
     <?php } ?>
   <h2>Batches</h2>
     <?php if ($batch_points) { ?><p>You have <?php echo $batch_points ?> points from indexing batches.</p><?php } ?>
+    <?php foreach($batches as $batch) { ?>
+    <a href="../batch/update?id=<?php echo $batch->id ?>"><div><?php echo $batch->date . " " . $batch->points ?></div></a>
+    <?php } ?>
     <form action='../batch/create' method='post'>
       Points: <input type="text" name="points"><br>
       Date: <input type="date" name="date"><br>

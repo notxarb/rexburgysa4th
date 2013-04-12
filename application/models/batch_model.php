@@ -12,6 +12,12 @@ class Batch_model extends CI_Model {
         parent::__construct();
     }
 
+    public function get_batches($user_id)
+    {
+      $query = $this->db->get_where('batches', array("user_id" => $user_id));
+      return $query->results();
+    }
+
     public function get($user_id, $id)
     {
       $query = $this->db->get_where('batches', array('id' => $id, "user_id" => $user_id));
