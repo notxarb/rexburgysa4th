@@ -31,7 +31,7 @@ class Batch_model extends CI_Model {
       $this->user_id = $user_id;
       $this->points = $points;
       $this->date = $date;
-      $this->db->insert('batches', $this, array("id" => $id, "user_id" => $user_id));
+      $this->db->update('batches', $this, array("id" => $id, "user_id" => $user_id));
     }
 
     public function delete($user_id, $id)

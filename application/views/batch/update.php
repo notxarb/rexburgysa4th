@@ -6,7 +6,7 @@
       Points: <input type="text" name="points" value="<?php echo $batch->points ?>"><br>
       Date: <input type="date" name="date" value="<?php echo $batch->date ?>"><br>
       <input type="hidden" name="id" value="<?php echo $batch->id ?>">
-      <input type="submit" value="update">
+      <input type="submit" value="Save">
     </form>
   </body>
 </html>

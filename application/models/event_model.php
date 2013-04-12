@@ -13,6 +13,12 @@ class Event_model extends CI_Model {
         parent::__construct();
     }
 
+    public function get($id)
+    {
+      $query = $this->db->get_where('events', array('id' => $id));
+      return $query->row();
+    }
+
     public function insert($date, $points, $description, $location)
     {
       $this->date = $date;
@@ -20,6 +26,20 @@ class Event_model extends CI_Model {
       $this->description = $this->db->escape($description);
       $this->location = $this->db->escape($location);
       $this->db->insert("events", $this);
+    }
+
+    public function update($date, $points, $description, $location, $id)
+    {
+      $this->date = $date;
+      $this->points = $points;
+      $this->description = $this->db->escape($description);
+      $this->location = $this->db->escape($location);
+      $this->db->update("events", $this, array("id" => $id));
+    }
+
+    public function delete()
+    {
+      $this->db->delete('events', array("id" => $id));
     }
 
 }
