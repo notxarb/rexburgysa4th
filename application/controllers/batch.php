@@ -32,7 +32,7 @@ class Batch extends CI_Controller {
       $user_id = $this->session->userdata('user_id');
       $points = $this->input->post('points');
       $date = $this->input->post('date');
-      $id = $this->input->post('id')
+      $id = $this->input->post('id');
       $this->Batch_model->update($user_id, $points, $date, $id);
       redirect("user/index");
     }
@@ -52,7 +52,7 @@ class Batch extends CI_Controller {
     {
       $this->load->model('Batch_model');
       $user_id = $this->session->userdata('user_id');
-      $id = $this->input->post('id')
+      $id = $this->input->post('id');
       $this->Batch_model->delete($user_id, $id);
       redirect("user/index");
     }
