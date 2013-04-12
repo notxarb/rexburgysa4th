@@ -13,6 +13,12 @@ class Event_model extends CI_Model {
         parent::__construct();
     }
 
+    public function get_event_list()
+    {
+      $query = $this->db->get('events');
+      return $query->result();
+    }
+
     public function get($id)
     {
       $query = $this->db->get_where('events', array('id' => $id));

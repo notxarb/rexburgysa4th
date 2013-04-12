@@ -7,7 +7,9 @@ class User extends CI_Controller {
     if ($this->session->userdata('user_id'))
     {
       $this->load->model('Ward_model');
+      $this->load->model('Event_model');
       $ward = $this->Ward_model->get_ward($this->session->userdata('ward_id'));
+      $events = $this->Event_model->get_event_list();
       $points = $this->User_model->get_points();
       $data = array();
       $data['first_name'] = $this->session->userdata('first_name');
@@ -16,6 +18,7 @@ class User extends CI_Controller {
       $data['ward_goal'] = $ward->goal;
       $data['event_points'] = $points['event_points'];
       $data['batch_points'] = $points['batch_points'];
+      $data['events'] = $events;
       $this->load->view('user/index', $data);
     }
     else
