@@ -54,7 +54,7 @@ class User_model extends CI_Model {
     {
       $week =  floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) / 7);
       $day =  floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) % 7);
-      $calendar[$week][$day] = { 'date' => $date };
+      $calendar[$week][$day] = array( 'date' => $date );
     }
     return $calendar;
   }
