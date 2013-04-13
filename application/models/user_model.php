@@ -50,7 +50,7 @@ class User_model extends CI_Model {
   {
     $calendar = array();
 
-    for ($date = strtotime('2013-03-24'); $date <= strtotime('2013-04-30'); $date = strtotime("+1 day", strtotime($date)))
+    for ($date = strtotime('2013-03-24'); $date <= strtotime('2013-04-30'); $date = strtotime("+1 day", $date))
     {
       $week =  floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) / 7);
       $day =  floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) % 7);
