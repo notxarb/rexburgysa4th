@@ -46,6 +46,19 @@ class User_model extends CI_Model {
     }
   }
 
+  public function make_calendar()
+  {
+    $calendar = array();
+
+    for ($date = strtotime('2013-03-24'); $date <= strtotime('2013-04-30'); $date = strtotime("+1 day", strtotime($date)))
+    {
+      $week =  floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) / 7);
+      $day =  floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) % 7);
+      $calendar[$week][$day] = { 'date' => $date };
+    }
+    return $calendar;
+  }
+
   public function get_points()
   {
     $batch_points = "0";

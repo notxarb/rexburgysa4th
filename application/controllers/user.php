@@ -14,6 +14,7 @@ class User extends CI_Controller {
       $events = $this->Event_model->get_event_list();
       $batches = $this->Batch_model->get_batches($user_id);
       $points = $this->User_model->get_points();
+      $calendar = $this->User_model->get_calendar();
       $data = array();
       $data['first_name'] = $this->session->userdata('first_name');
       $data['last_name'] = $this->session->userdata('last_name');
@@ -23,6 +24,7 @@ class User extends CI_Controller {
       $data['batch_points'] = $points['batch_points'];
       $data['events'] = $events;
       $data['batches'] = $batches;
+      $data['calendar'] = $calendar;
       $this->load->view('user/index', $data);
     }
     else
