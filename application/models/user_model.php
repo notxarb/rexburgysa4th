@@ -64,7 +64,7 @@ class User_model extends CI_Model {
     $batches = $query->result();
     foreach($events as $event)
     {
-      $date = strtotime($event->date)
+      $date = strtotime($event->date);
       if (($date>= $begin_time) && ($date <= $end_time))
       {
         $week = floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) / 7);
@@ -74,7 +74,7 @@ class User_model extends CI_Model {
     }
     foreach($batches as $batch)
     {
-      $date = strtotime($batch->date)
+      $date = strtotime($batch->date);
       if (($date>= $begin_time) && ($date <= $end_time))
       {
         $week = floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) / 7);
