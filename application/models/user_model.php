@@ -52,10 +52,10 @@ class User_model extends CI_Model {
     $begin_time = strtotime('2013-03-24');
     $end_time = strtotime('2013-04-30');
 
-    for ($date = strtotime('2013-03-24'); $date <= strtotime('2013-04-30'); $date = strtotime("+1 day", $date))
+    for ($date = clone $begin_time; $date <= $end_time; $date = strtotime("+1 day", $date))
     {
-      $week =  floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) / 7);
-      $day =  floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) % 7);
+      $week =  floor(ceil(abs($date - $begin_time) / 86400) / 7);
+      $day =  floor(ceil(abs($date - $begin_time) / 86400) % 7);
       $calendar[$week][$day] = array( 'date' => $date, 'events' => array(), 'batches' => array() );
     }
     $query = $this->db->get('events');
@@ -67,8 +67,8 @@ class User_model extends CI_Model {
       $date = strtotime($event->date);
       if (($date>= $begin_time) && ($date <= $end_time))
       {
-        $week = floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) / 7);
-        $day = floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) % 7);
+        $week = floor(ceil(abs($date - $begin_time) / 86400) / 7);
+        $day = floor(ceil(abs($date - $begin_time) / 86400) % 7);
         $calendar[$week][$day]['events'][] = clone $event;
       }
     }
@@ -77,8 +77,8 @@ class User_model extends CI_Model {
       $date = strtotime($batch->date);
       if (($date>= $begin_time) && ($date <= $end_time))
       {
-        $week = floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) / 7);
-        $day = floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) % 7);
+        $week = floor(ceil(abs($date - $begin_time) / 86400) / 7);
+        $day = floor(ceil(abs($date - $begin_time) / 86400) % 7);
         $calendar[$week][$day]['batches'][] = clone $batch;
       }
     }
