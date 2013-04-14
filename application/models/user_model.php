@@ -49,6 +49,8 @@ class User_model extends CI_Model {
   public function make_calendar($user_id)
   {
     $calendar = array();
+    $begin_time = strtotime('2013-03-24');
+    $end_time = strtotime('2013-04-30');
 
     for ($date = strtotime('2013-03-24'); $date <= strtotime('2013-04-30'); $date = strtotime("+1 day", $date))
     {
@@ -62,15 +64,21 @@ class User_model extends CI_Model {
     $batches = $query->result();
     foreach($events as $event)
     {
-      $week = floor(ceil(abs($event->date - strtotime('2013-03-24')) / 86400) / 7);
-      $day = floor(ceil(abs($event->date - strtotime('2013-03-24')) / 86400) % 7);
-      $calendar[$week][$day]['events'][] = $event;
+      if (($event->date >= $begin_time) && ($event->date <= $end_time))
+      {
+        $week = floor(ceil(abs($event->date - strtotime('2013-03-24')) / 86400) / 7);
+        $day = floor(ceil(abs($event->date - strtotime('2013-03-24')) / 86400) % 7);
+        $calendar[$week][$day]['events'][] = $event;
+      }
     }
     foreach($batches as $batch)
     {
-      $week = floor(ceil(abs($batch->date - strtotime('2013-03-24')) / 86400) / 7);
-      $day = floor(ceil(abs($batch->date - strtotime('2013-03-24')) / 86400) % 7);
-      $calendar[$week][$day]['batches'][] = $batch;
+      if (($event->date >= $begin_time) && ($event->date <= $end_time))
+      {
+        $week = floor(ceil(abs($batch->date - strtotime('2013-03-24')) / 86400) / 7);
+        $day = floor(ceil(abs($batch->date - strtotime('2013-03-24')) / 86400) % 7);
+        $calendar[$week][$day]['batches'][] = $batch;
+      }
     }
     return $calendar;
   }
