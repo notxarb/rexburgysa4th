@@ -46,7 +46,7 @@ class User_model extends CI_Model {
     }
   }
 
-  public function make_calendar()
+  public function make_calendar($user_id)
   {
     $calendar = array();
 
@@ -54,7 +54,23 @@ class User_model extends CI_Model {
     {
       $week =  floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) / 7);
       $day =  floor(ceil(abs($date - strtotime('2013-03-24')) / 86400) % 7);
-      $calendar[$week][$day] = array( 'date' => $date );
+      $calendar[$week][$day] = array( 'date' => $date, 'events' => array(), 'batches' => array() );
+    }
+    $query = $this->db->get('events');
+    $events = $query->result();
+    $query = $this->db->get_where('batches', array("user_id" => $user_id));
+    $batches = $query->result();
+    foreach($events as $event)
+    {
+      $week = floor(ceil(abs($event->date - strtotime('2013-03-24')) / 86400) / 7);
+      $day = floor(ceil(abs($event->date - strtotime('2013-03-24')) / 86400) % 7);
+      $calendar[$week][$day]['events'][] = $event;
+    }
+    foreach($batches as $batch)
+    {
+      $week = floor(ceil(abs($batch->date - strtotime('2013-03-24')) / 86400) / 7);
+      $day = floor(ceil(abs($batch->date - strtotime('2013-03-24')) / 86400) % 7);
+      $calendar[$week][$day]['batches'][] = $batch;
     }
     return $calendar;
   }
