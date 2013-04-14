@@ -64,21 +64,21 @@ class User_model extends CI_Model {
     $batches = $query->result();
     foreach($events as $event)
     {
-      if (($event->date >= $begin_time) && ($event->date <= $end_time))
-      {
+      // if (($event->date >= $begin_time) && ($event->date <= $end_time))
+      // {
         $week = floor(ceil(abs($event->date - strtotime('2013-03-24')) / 86400) / 7);
         $day = floor(ceil(abs($event->date - strtotime('2013-03-24')) / 86400) % 7);
         $calendar[$week][$day]['events'][] = clone $event;
-      }
+      // }
     }
     foreach($batches as $batch)
     {
-      if (($event->date >= $begin_time) && ($event->date <= $end_time))
-      {
+      // if (($event->date >= $begin_time) && ($event->date <= $end_time))
+      // {
         $week = floor(ceil(abs($batch->date - strtotime('2013-03-24')) / 86400) / 7);
         $day = floor(ceil(abs($batch->date - strtotime('2013-03-24')) / 86400) % 7);
         $calendar[$week][$day]['batches'][] = clone $batch;
-      }
+      // }
     }
     return $calendar;
   }
