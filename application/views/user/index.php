@@ -13,7 +13,7 @@
       <td class="<?php echo date("F", $day['date'])?> " >
         <div class="date"><?php echo date("d", $day['date']); ?></div>
         <?php foreach($day['events'] as $event) { ?>
-        <div><a href="../event/view?id=<?php echo $event->id ?>"><?php ?></a></div>
+        <div><a href="../event/view?id=<?php echo $event->id ?>"><?php $event->location ?></a></div>
         <?php } ?>
         <?php foreach($day['batches'] as $batch) { ?>
         <div><a href="../batch/update?id=<?php echo $batch->id ?>"><?php $batch->points ?> point batch</a> <a href="../batch/delete?id=<?php echo $batch->id ?>">remove</a></div>
