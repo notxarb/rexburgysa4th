@@ -12,6 +12,7 @@
       <?php foreach($week as $day) { ?>
       <td class="<?php echo date("F", $day['date'])?> " >
         <div class="date"><?php echo date("d", $day['date']); ?></div>
+        <?php print_r($day) ?>
         <?php foreach($day['events'] as $event) { ?>
         <div><a href="../event/view?id=<?php echo $event->id ?>"><?php $event->location ?></a></div>
         <?php } ?>
