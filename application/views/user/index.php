@@ -6,17 +6,17 @@
   <h1>Welcome <?php echo $first_name . " " . $last_name ?> from <?php echo $ward_name ?></h1>
   <p>Your ward has a goal of getting <?php echo $ward_goal ?> points.</p>
   <table class="calendar">
-    <tr><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
+    <tr class="calendar_header"><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
     <?php foreach($calendar as $week) { ?>
-    <tr>
+    <tr class="calendar_week">
       <?php foreach($week as $day) { ?>
-      <td class="<?php echo date("F", $day['date'])?> " >
-        <div class="date"><?php echo date("d", $day['date']); ?></div>
+      <td class="<?php echo date("F", $day['date'])?> calendar_day" >
+        <div class="calendar_date"><?php echo date("d", $day['date']); ?></div>
         <?php foreach($day['events'] as $event) { ?>
-        <div><a href="../event/view?id=<?php echo $event->id ?>"><?php echo $event->location ?></a></div>
+        <div class="calendar_event"><a href="../event/view?id=<?php echo $event->id ?>"><?php echo $event->location ?></a></div>
         <?php } ?>
         <?php foreach($day['batches'] as $batch) { ?>
-        <div><a href="../batch/update?id=<?php echo $batch->id ?>"><?php echo $batch->points ?> point batch</a> <a href="../batch/delete?id=<?php echo $batch->id ?>">remove</a></div>
+        <div class="calendar_batch"><a href="../batch/update?id=<?php echo $batch->id ?>"><?php echo $batch->points ?> point batch</a> <a href="../batch/delete?id=<?php echo $batch->id ?>">remove</a></div>
         <?php } ?>
       </td>
       <?php } ?>
