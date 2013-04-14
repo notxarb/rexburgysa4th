@@ -52,7 +52,7 @@ class User_model extends CI_Model {
     $begin_time = strtotime('2013-03-24');
     $end_time = strtotime('2013-04-30');
 
-    for ($date = clone $begin_time; $date <= $end_time; $date = strtotime("+1 day", $date))
+    for ($date = $begin_time; $date <= $end_time; $date = strtotime("+1 day", $date))
     {
       $week =  floor(ceil(abs($date - $begin_time) / 86400) / 7);
       $day =  floor(ceil(abs($date - $begin_time) / 86400) % 7);
