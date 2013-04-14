@@ -2,14 +2,15 @@
   <head>
   </head>
   <body>
-    <p> Log In:<br>
+    <h1>Rexburg YSA 4th Stake Family History</h1>
+    <div class="log_in"> Log In:<br>
       <form action='log_in' method='post'>
         Username: <input type="text" name="user_name"><br>
         Password: <input type="password" name="password"><br>
         <input type="submit" value="Log in">
       </form>
-    </p>
-    <p>New User:
+    </div>
+    <div class="new_user">New User:
       <form action='new_user' method='post'>
         First name: <input type="text" name="first_name"><br>
         Last name: <input type="text" name="last_name"><br>
@@ -24,6 +25,7 @@
         Username: <input type="text" name="user_name"><br>
         Password: <input type="password" name="password"><br>
       <input type="submit" value="Create User">
-    </form></p>
+    </form>
+  </div>
   </body>
 </html>
