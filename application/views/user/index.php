@@ -15,14 +15,17 @@
         <?php foreach($day['events'] as $event) { ?>
         <div class="calendar_event"><a href="../event/view?id=<?php echo $event->id ?>"><?php echo $event->location ?></a></div>
         <?php } ?>
-        <form action='../batch/update' method='post'>
+        
         <?php if (count($day['batches']) > 0 ) { ?>
+        <form action='../batch/update' method='post'>
         Batch Points: <input type="text" name="points" value="<?php echo $day['batches'][0]->points ?>"><br>
+        <input type="hidden" name="id" value="<?php echo $day['batches'][0]->id ?>">
         <?php } else { ?>
+        <form action='../batch/create' method='post'>
         Points: <input type="text" name="points" value="0"><br>
         <?php } ?>
           <input type="hidden" name="date" value="<?php echo date( "m/d/Y" ,strtotime($batch->date)) ?>"><br>
-          <input type="hidden" name="id" value="<?php echo $batch->id ?>">
+          
           <input type="submit" value="Save">
         </form>
       </td>
