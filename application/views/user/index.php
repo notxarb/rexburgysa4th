@@ -24,7 +24,7 @@
         <form action='../batch/create' method='post'>
         Batch Points: <input type="text" name="points" value="0"><br>
         <?php } ?>
-          <input type="hidden" name="date" value="<?php echo date( "Y-m-d" ,strtotime($day['date'])) ?>"><br>
+          <input type="hidden" name="date" value="<?php echo date( "Y-m-d" ,$day['date']) ?>"><br>
           
           <input type="submit" value="Save">
         </form>
