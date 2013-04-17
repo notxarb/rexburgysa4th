@@ -16,7 +16,7 @@
         <div class="calendar_event"><a href="../event/view?id=<?php echo $event->id ?>"><?php echo $event->location ?></a></div>
         <?php } ?>
         <form action='../batch/update' method='post'>
-        <?php if (length($day['batches'])) { ?>
+        <?php if (count($day['batches']) > 0 ) { ?>
         Batch Points: <input type="text" name="points" value="<?php echo $day['batches'][0]->points ?>"><br>
         <?php } else { ?>
         Points: <input type="text" name="points" value="0"><br>
