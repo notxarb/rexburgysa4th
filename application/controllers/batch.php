@@ -33,7 +33,13 @@ class Batch extends CI_Controller {
       $points = $this->input->post('points');
       $date = $this->input->post('date');
       $id = $this->input->post('id');
-      $this->Batch_model->update($user_id, $points, $date, $id);
+      if ($points == 0) {
+        $this->Batch_model->delete($user_id, $id);
+      }
+      else
+      {
+        $this->Batch_model->update($user_id, $points, $date, $id);
+      }
       redirect("user/index");
     }
     elseif ($this->input->server('REQUEST_METHOD') == 'GET')
