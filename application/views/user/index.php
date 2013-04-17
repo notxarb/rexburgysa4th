@@ -6,7 +6,7 @@
   <h1>Welcome <?php echo $first_name . " " . $last_name ?> from <?php echo $ward_name ?></h1>
   <p>Your ward has a goal of getting <?php echo $ward_goal ?> points.</p>
   <table class="calendar">
-    <tr class="calendar_header"><th>Sunday</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
+    <tr class="calendar_header"><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th><th>Sunday</th></tr>
     <?php foreach($calendar as $week) { ?>
     <tr class="calendar_week">
       <?php foreach($week as $day) { ?>

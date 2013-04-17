@@ -49,7 +49,7 @@ class User_model extends CI_Model {
   public function make_calendar($user_id)
   {
     $calendar = array();
-    $begin_time = strtotime('2013-03-24');
+    $begin_time = strtotime('2013-03-25');
     $end_time = strtotime('2013-04-30');
 
     for ($date = $begin_time; $date <= $end_time; $date = strtotime("+1 day", $date))
