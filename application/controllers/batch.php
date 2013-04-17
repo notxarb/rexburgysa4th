@@ -33,7 +33,8 @@ class Batch extends CI_Controller {
       $points = $this->input->post('points');
       $date = $this->input->post('date');
       $id = $this->input->post('id');
-      if (($points == 0) {
+      if ($points == 0)
+      {
         $this->Batch_model->delete($user_id, $id);
       }
       elseif(isset($id))
