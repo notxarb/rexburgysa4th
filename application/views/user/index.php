@@ -22,7 +22,7 @@
         <input type="hidden" name="id" value="<?php echo $day['batches'][0]->id ?>">
         <?php } else { ?>
         <form action='../batch/create' method='post'>
-        Points: <input type="text" name="points" value="0"><br>
+        Batch Points: <input type="text" name="points" value="0"><br>
         <?php } ?>
           <input type="hidden" name="date" value="<?php echo date( "Y-m-d" ,strtotime($day['date'])) ?>"><br>
           
@@ -40,13 +40,5 @@
     <?php } ?>
   <h2>Batches</h2>
     <?php if ($batch_points) { ?><p>You have <?php echo $batch_points ?> points from indexing batches.</p><?php } ?>
-    <?php foreach($batches as $batch) { ?>
-    <a href="../batch/update?id=<?php echo $batch->id ?>"><div><?php echo $batch->date . " " . $batch->points ?></div></a>
-    <?php } ?>
-    <form action='../batch/create' method='post'>
-      Points: <input type="text" name="points"><br>
-      Date: <input type="date" name="date"><br>
-      <input type="submit" value="Submit">
-    </form>
 </body>
 </html>
